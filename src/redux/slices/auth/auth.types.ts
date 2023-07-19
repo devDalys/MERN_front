@@ -1,5 +1,5 @@
 export interface LoginProps {
-    login: string
+    email: string
     password: string
 }
 
