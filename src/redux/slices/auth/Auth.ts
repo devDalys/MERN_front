@@ -30,11 +30,14 @@ const loginSlice = createSlice({
         builder.addCase(login.rejected, (state, action) => {
             state.errorBody.msg = action.payload?.response?.data.msg;
             state.loading = false
+            setAccessToken('')
         })
         builder.addCase(login.fulfilled, (state, action) => {
             state.data = action.payload;
-            setAccessToken(state.data.token)
             state.loading = false;
+            state.errorBody.msg = ''
+            setAccessToken(state.data.token)
+
         });
     }
 })
