@@ -1,1 +1,1 @@
-export * from './Auth.ts'
+export {login,loginReducer} from './Auth.ts'

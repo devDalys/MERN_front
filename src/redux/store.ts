@@ -1,5 +1,5 @@
 import {configureStore} from '@reduxjs/toolkit'
-import {loginReducer} from "./slices/auth/Auth.ts";
+import {loginReducer} from "@configredux/slices/auth";
 
 
 

@@ -1,7 +1,7 @@
-import {useTSelector} from "./redux/useTSelector.ts";
-import {login} from "@redux/slices/auth";
-import {useAppDispatch} from "./redux/useAppDispatch.ts";
 import {useEffect} from "react";
+import {useTSelector} from "@configredux/useTSelector.ts";
+import {useAppDispatch} from "@configredux/useAppDispatch.ts";
+import {login} from "@configredux/slices/auth";
 
 function App() {
   const state = useTSelector().login;

@@ -23,7 +23,7 @@
     "paths": {
       "@helpers/*": ["./helpers/*"],
       "@api/*": ["./api/*"],
-      "@redux/*": ["./redux/*"],
+      "@configredux/*": ["./redux/*"],
       "@components/*": ["./components/*"],
       "@type/*": ["./types/*"]
     }

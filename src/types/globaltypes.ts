@@ -1,4 +1,4 @@
-import {store} from "@redux/store.ts";
+import {store} from "@configredux/store.ts";
 
 export interface QueryError {
     msg?: string;
