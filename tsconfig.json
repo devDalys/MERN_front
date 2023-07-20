@@ -22,7 +22,10 @@
     "baseUrl": "./src",
     "paths": {
       "@helpers/*": ["./helpers/*"],
-      "@api/*": ["./api/*"]
+      "@api/*": ["./api/*"],
+      "@redux/*": ["./redux/*"],
+      "@components/*": ["./components/*"],
+      "@type/*": ["./types/*"]
     }
   },
   "include": ["src"],

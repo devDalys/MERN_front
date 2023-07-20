@@ -1,23 +1,14 @@
-import {createAsyncThunk, createSlice} from "@reduxjs/toolkit";
-import {AxiosResponse} from 'axios'
+import {createSlice} from "@reduxjs/toolkit";
 import {LoginProps, LoginResponse} from "./auth.types.ts";
 import {setAccessToken} from "@helpers/auth";
-import {api} from "@api/axios.ts";
-import {QueryResponse} from "../../../types/globaltypes.ts";
+import {createAsyncAxiosThunk} from "@api/createAsyncAxiosThunk.ts";
+import {generateInitialState} from "@redux/generateInitialState.ts";
 
-export const login = createAsyncThunk('login', async (arg: LoginProps, thunkAPI) => {
-    const response: AxiosResponse<LoginResponse> = await api.post('/auth/login', arg);
-
-    if (response.data.token) {
-        setAccessToken(response.data.token)
-        return response.data
-    }
-    thunkAPI.rejectWithValue(response.data)
-})
+export const login = createAsyncAxiosThunk<LoginResponse, LoginProps>('/auth/login');
 
 
-const initialState: QueryResponse<LoginResponse> = {
-    data: {
+export const initialState = generateInitialState(
+    {
         token: '',
         _id: '',
         createdAt: '',
@@ -25,12 +16,8 @@ const initialState: QueryResponse<LoginResponse> = {
         firstName: '',
         lastName: '',
         updatedAt: ''
-    },
-    loading: false,
-    errorBody: {
-        msg: ''
     }
-}
+)
 
 const loginSlice = createSlice({
     name: 'login',
@@ -41,11 +28,12 @@ const loginSlice = createSlice({
             state.loading = true;
         })
         builder.addCase(login.rejected, (state, action) => {
-            state.errorBody.msg = action.error.message as string;
+            state.errorBody.msg = action.payload?.response?.data.msg;
             state.loading = false
         })
         builder.addCase(login.fulfilled, (state, action) => {
-            state.data = action.payload as LoginResponse;
+            state.data = action.payload;
+            setAccessToken(state.data.token)
             state.loading = false;
         });
     }

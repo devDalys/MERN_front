@@ -1,6 +1,6 @@
 
 export interface QueryError {
-    msg: string;
+    msg?: string;
 }
 export interface QueryResponse<T> {
     data: T,

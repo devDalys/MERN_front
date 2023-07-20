@@ -8,6 +8,9 @@ export default defineConfig({
     alias: {
       '@helpers': path.resolve(__dirname, 'src/helpers'),
       '@api': path.resolve(__dirname, 'src/api'),
+      '@redux': path.resolve(__dirname, 'src/redux'),
+      '@components': path.resolve(__dirname, 'src/components'),
+      '@type': path.resolve(__dirname, 'src/types'),
     },
-  }
+  },
 })

@@ -1,5 +1,5 @@
 import {useTSelector} from "./redux/useTSelector.ts";
-import {login} from "./redux/slices/auth/Auth.ts";
+import {login} from "./redux/slices/auth";
 import {useAppDispatch} from "./redux/useAppDispatch.ts";
 import {useEffect} from "react";
 
