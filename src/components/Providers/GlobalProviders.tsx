@@ -1,6 +1,7 @@
 import React from "react";
-import { Provider } from 'react-redux'
+import {Provider} from 'react-redux'
 import {store} from "../../redux/store.ts";
+import {ErrorBoundary} from "@components/Providers/ErrorBoundary";
 
 type Props = {
     children: React.ReactNode
@@ -9,7 +10,9 @@ type Props = {
 export const GlobalProviders: React.FC<Props> = ({children}) => {
     return (
         <Provider store={store}>
-            {children}
+            <ErrorBoundary>
+                {children}
+            </ErrorBoundary>
         </Provider>
     )
 }

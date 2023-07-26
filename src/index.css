@@ -3,3 +3,11 @@
   margin: 0;
   padding: 0;
 }
+
+:root {
+  --bg-grey: #C3BFC6;
+  --color-purple: #985ACE;
+  --color-white: #fff;
+  --bg-pink: #F8F1FF;
+
+}

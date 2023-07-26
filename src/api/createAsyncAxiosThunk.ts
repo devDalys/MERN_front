@@ -1,6 +1,6 @@
 import {createAsyncThunk} from "@reduxjs/toolkit";
 import * as Axios from "axios";
-import {QueryError} from "../types/globaltypes.ts";
+import {QueryError} from "@type/globaltypes";
 import {api} from "@api/axios.ts";
 
 export const createAsyncAxiosThunk = <T, D>(path: string) =>  createAsyncThunk<T, D, { rejectValue: Axios.AxiosError<QueryError> }>(

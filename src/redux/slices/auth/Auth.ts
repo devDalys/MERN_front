@@ -7,7 +7,7 @@ import {LoginProps, LoginResponse} from "@configredux/slices/auth/auth.types.ts"
 export const login = createAsyncAxiosThunk<LoginResponse, LoginProps>('/auth/login');
 
 
-export const initialState = generateInitialState(
+export const initialState = generateInitialState<LoginResponse>(
     {
         token: '',
         _id: '',
