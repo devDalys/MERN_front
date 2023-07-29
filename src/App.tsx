@@ -2,6 +2,7 @@ import {useEffect} from "react";
 import {useTSelector} from "@configredux/useTSelector.ts";
 import {useAppDispatch} from "@configredux/useAppDispatch.ts";
 import {login} from "@configredux/slices/auth";
+import {Input} from "@components/Input/Input.tsx";
 
 function App() {
   const state = useTSelector().login;
@@ -12,7 +13,9 @@ function App() {
   }, [])
   console.log(state)
 
-  return (<div>test</div>)
+  return (<div>
+    <Input labelText={'Телефон'} />
+  </div>)
 
 }
 

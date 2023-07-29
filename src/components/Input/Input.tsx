@@ -1,24 +1,32 @@
 import * as React from "react";
 import {ChangeEventHandler} from "react";
 import cn from 'classnames'
-interface Props extends HTMLInputElement {
-    className: string,
+import styles from './Input.module.scss'
+interface Props extends React.DetailedHTMLProps<React.InputHTMLAttributes<HTMLInputElement>, HTMLInputElement> {
+    className?: string,
     onChange: ChangeEventHandler<HTMLInputElement> | undefined;
-    icon: React.ReactNode;
+    icon?: React.ReactNode;
     onIconClickHandler?: void
     inputType?: boolean;
-    value: string;
+    labelText: string
 
 }
 
 export const Input: React.FC<Props> = (props) => {
     const {
-        className, onChange, ...rest
+        className, labelText, onChange, ...rest
     } = props;
 
-    return (
-        <input onChange={onChange} className={cn(className, 'test')} {...rest}>
+    const [state, setState] = React.useState('');
 
-        </input>
+    return (
+        <>
+            <label htmlFor='customInput'>{labelText}</label>
+            <input value ={state} onChange={(event) => {
+                setState(event.target.value);
+                onChange?.(event)
+            }
+            } className={cn(className, styles.input)} id='customInput' {...rest} />
+        </>
     )
 }
