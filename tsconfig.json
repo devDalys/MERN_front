@@ -26,7 +26,8 @@
       "@configredux/*": ["./redux/*"],
       "@components/*": ["./components/*"],
       "@type/*": ["./types/*"]
-    }
+    },
+    "allowSyntheticDefaultImports": true
   },
   "include": ["src"],
   "references": [{ "path": "./tsconfig.node.json" }]
