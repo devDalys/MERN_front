@@ -3,6 +3,7 @@ import {useTSelector} from "@configredux/useTSelector.ts";
 import {useAppDispatch} from "@configredux/useAppDispatch.ts";
 import {login} from "@configredux/slices/auth";
 import {Input} from "@components/Input/Input.tsx";
+import './index.css'
 
 function App() {
   const state = useTSelector().login;
@@ -13,9 +14,11 @@ function App() {
   }, [])
   console.log(state)
 
-  return (<div>
-    <Input labelText={'Телефон'} />
-  </div>)
+  return (
+      <div className='app'>
+        <Input labelText='Телефон'/>
+      </div>
+  )
 
 }
 

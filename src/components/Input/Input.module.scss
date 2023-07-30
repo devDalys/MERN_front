@@ -1,3 +1,39 @@
-.input{
-
+.inputWrapper{
+  position: relative;
+  width: max-content;
+  margin-left: 20px;
 }
+
+.label{
+  position: absolute;
+  font-size: 14px;
+  top: 30%;
+  left: 5%;
+  transition: all 0.2s;
+  color: #403A4B;
+  font-weight: 700;
+  opacity: 0.6;
+}
+
+.input{
+  background: var(--bg-pink);
+  border-radius: 8px;
+  border: none;
+  outline: none;
+  padding: 8px 16px;
+  min-height: 44px;
+
+  &:focus ~.label{
+    top: 0;
+    font-size: 11px;
+    transition: all 0.2s;
+  }
+  &.notEmpty  ~.label{
+    top: 0;
+    font-size: 11px;
+    transition: all 0.2s;
+  }
+}
+
+
+

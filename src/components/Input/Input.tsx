@@ -20,13 +20,14 @@ export const Input: React.FC<Props> = (props) => {
     const [state, setState] = React.useState('');
 
     return (
-        <>
-            <label htmlFor='customInput'>{labelText}</label>
+        <div className={cn(styles.inputWrapper)}>
             <input value ={state} onChange={(event) => {
                 setState(event.target.value);
                 onChange?.(event)
             }
-            } className={cn(className, styles.input)} id='customInput' {...rest} />
-        </>
+            } className={cn(className, styles.input, {[styles.notEmpty]: state.length})} id='customInput' {...rest} />
+            <label htmlFor='customInput' className={styles.label}>{labelText}</label>
+
+        </div>
     )
 }
