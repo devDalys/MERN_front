@@ -1,0 +1,17 @@
+.overlay{
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0,0,0,0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  top: 0;
+}
+
+.modal{
+  border-radius: 8px;
+  background: var(--white);
+  height: 60%;
+  width: 20%;
+}

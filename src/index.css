@@ -12,12 +12,8 @@
   --color-purple: #985ACE;
   --color-white: #fff;
   --bg-pink: #F8F1FF;
+  --white: #fff;
+  --black: #000;
 
 }
 
-.app{
-  background: var(--bg-grey);
-  width: 100%;
-  margin: 0 auto;
-  height: 100vh;
-}

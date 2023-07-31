@@ -25,7 +25,8 @@
       "@api/*": ["./api/*"],
       "@configredux/*": ["./redux/*"],
       "@components/*": ["./components/*"],
-      "@type/*": ["./types/*"]
+      "@type/*": ["./types/*"],
+      "@routes/*": ["./routes/*"]
     },
     "allowSyntheticDefaultImports": true
   },
