@@ -26,7 +26,7 @@
       "@configredux/*": ["./redux/*"],
       "@components/*": ["./components/*"],
       "@type/*": ["./types/*"],
-      "@routes/*": ["./routes/*"]
+      "@configroutes/*": ["./routes/*"]
     },
     "allowSyntheticDefaultImports": true
   },

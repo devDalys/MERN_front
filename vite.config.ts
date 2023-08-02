@@ -11,7 +11,7 @@ export default defineConfig({
       '@configredux': path.resolve(__dirname, 'src/redux'),
       '@components': path.resolve(__dirname, 'src/components'),
       '@type': path.resolve(__dirname, 'src/types'),
-      '@routes/*': path.resolve(__dirname, 'src/routes')
+      '@configroutes': path.resolve(__dirname, 'src/routes')
     },
   },
 })

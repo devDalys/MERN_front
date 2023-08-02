@@ -4,9 +4,13 @@ import * as React from 'react'
 
 
 export const Layout: React.FC = () => {
+
+
     return (
-        <div className={styles.layout}>
-			<Outlet />
+        <div className={styles.app}>
+            <div className={styles.layout}>
+                <Outlet />
+            </div>
         </div>
     )
 }

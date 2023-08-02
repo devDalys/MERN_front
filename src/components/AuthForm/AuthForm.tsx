@@ -1,7 +1,7 @@
 import * as React from 'react'
 import {getAccessToken} from "@helpers/auth";
 import {NavLink, Outlet} from "react-router-dom";
-import {ROUTES} from "@routes/routes.ts";
+import {ROUTES} from "@configroutes/routes.ts";
 
 enum AUTH_ENUM  {
     LOGIN,
