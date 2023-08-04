@@ -1,14 +1,13 @@
 .inputWrapper{
   position: relative;
   width: max-content;
-  margin-left: 20px;
 }
 
 .label{
   position: absolute;
   font-size: 14px;
   top: 30%;
-  left: 5%;
+  left: 6%;
   transition: all 0.2s;
   color: #403A4B;
   font-weight: 700;
@@ -21,6 +20,7 @@
   border: none;
   outline: none;
   padding: 8px 16px;
+  min-width: 270px;
   min-height: 44px;
 
   &:focus ~.label{

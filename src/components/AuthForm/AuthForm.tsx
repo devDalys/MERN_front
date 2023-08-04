@@ -1,23 +1,21 @@
 import * as React from 'react'
-import {getAccessToken} from "@helpers/auth";
 import {NavLink, Outlet} from "react-router-dom";
 import {ROUTES} from "@configroutes/routes.ts";
+import styles from './AuthForm.module.scss'
 
-enum AUTH_ENUM  {
-    LOGIN,
-    REGISTRATION
-}
 
 export const AuthForm: React.FC = () => {
 
     return (
-        <div>
-			<NavLink to={ROUTES.auth.login}>
-				<div>Вход</div>
-            </NavLink>
-            <NavLink to={ROUTES.auth.register}>
-				<div>Регистрация</div>
-            </NavLink>
+        <div className={styles.form}>
+			<div className={styles.buttons}>
+                <NavLink to={ROUTES.auth.root}>
+                    <button className={styles.button}>Вход</button>
+                </NavLink>
+                <NavLink to={ROUTES.auth.register}>
+                    <button className={styles.button}>Регистрация</button>
+                </NavLink>
+            </div>
             <Outlet />
         </div>)
 }

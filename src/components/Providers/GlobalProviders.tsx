@@ -11,7 +11,7 @@ export const GlobalProviders: React.FC<Props> = ({children}) => {
     return (
         <Provider store={store}>
             <ErrorBoundary>
-                {children}
+                    {children}
             </ErrorBoundary>
         </Provider>
     )
