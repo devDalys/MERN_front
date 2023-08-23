@@ -12,3 +12,8 @@ export type RootState = ReturnType<typeof store.getState>
 export type AppDispatch = typeof store.dispatch
 
 
+export enum ErrorMessages {
+    email = 'Введите EMAIL',
+    password = 'Длинна пароля должна быть от 3 до 50 символов',
+    required = 'Обязательное поле'
+}
