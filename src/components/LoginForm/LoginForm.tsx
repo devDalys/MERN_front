@@ -20,20 +20,20 @@ const schema = yup
   });
 
 export const LoginForm: React.FC = () => {
-	const dispatch = useAppDispatch();
+  const dispatch = useAppDispatch();
   const loginState = useTSelector().login;
-
-  const {control, handleSubmit, getValues} = useForm<ILoginForm>({
+  const {control, handleSubmit} = useForm<ILoginForm>({
     reValidateMode: 'onChange', resolver: yupResolver(schema), defaultValues: {
       login: '',
       password: '',
     },
   });
-  console.log(loginState);
+
 
   const onSubmit = (data: ILoginForm) => {
-    dispatch(login({email: data.login, password: data.password}))
+    dispatch(login({email: data.login, password: data.password}));
   };
+
 
   return (
     <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>

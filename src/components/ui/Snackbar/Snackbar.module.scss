@@ -1,0 +1,22 @@
+.snackbar{
+  background-color: var(--color-purple);
+  color: white;
+  border-radius: 8px;
+  position: fixed;
+  bottom: 20px;
+  left: -1000px;
+  min-width: 300px;
+  max-width: fit-content;
+  padding: 12px 10px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  height: 50px;
+  transition: left 0.5s ease-in;
+}
+
+.snackbarVisible{
+  display: flex;
+  left: 20px;
+  transition: left 0.5s ease-in
+}
