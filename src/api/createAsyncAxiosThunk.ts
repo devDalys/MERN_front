@@ -1,24 +1,45 @@
 import {createAsyncThunk} from '@reduxjs/toolkit';
-import * as Axios from 'axios';
-import {QueryError} from '@type/globaltypes';
+import axios, {AxiosError, AxiosResponse} from 'axios';
+import {QueryError} from '@type/globaltypes.ts';
 import {api} from '@api/axios.ts';
 
-export const createAsyncAxiosThunk = <T, D>(path: string) => createAsyncThunk<T, D, {
-  rejectValue: Axios.AxiosError<QueryError>
-}>(
-  'login',
-  async (arg: D, thunkAPI) => {
-    try {
-      const response: Axios.AxiosResponse<T> = await api.post(path, arg);
-      return response.data;
-    } catch (err) {
+export type HttpMethod = 'GET' | 'POST' | 'PUT' | 'DELETE' | 'PATCH' | 'HEAD' | 'OPTIONS' | 'CONNECT' | 'TRACE';
 
-      if (Axios.isAxiosError(err) && err?.response?.data) {
-        return thunkAPI.rejectWithValue(err as Axios.AxiosError<QueryError>);
+export const createAsyncAxiosThunk = <T, D = undefined>(
+  path: string,
+  method: HttpMethod,
+): ReturnType<typeof createAsyncThunk<T, D, {rejectValue: AxiosError<QueryError>}>> =>
+  createAsyncThunk<T, D, {
+    rejectValue: AxiosError<QueryError>
+  }>(
+    'login',
+    async (arg: D | undefined, thunkAPI) => {
+      try {
+        if (!['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'HEAD', 'OPTIONS', 'CONNECT', 'TRACE'].includes(method)) {
+          throw new Error('Unsupported HTTP method');
+        }
 
-      } else {
-        throw err;
+        if (method === 'GET' && arg !== undefined) {
+          throw new Error('GET request cannot have a request body');
+        }
+
+        if (method === 'GET') {
+          const response: AxiosResponse<T> = await api.get<T>(path);
+          return response.data;
+        } else {
+          const response: AxiosResponse<T> = await api.request<T>({
+            url: path,
+            method,
+            data: arg,
+          });
+          return response.data;
+        }
+      } catch (err) {
+        if (axios.isAxiosError(err) && err?.response?.data) {
+          return thunkAPI.rejectWithValue(err as AxiosError<QueryError>);
+        } else {
+          throw err;
+        }
       }
-    }
   },
 );

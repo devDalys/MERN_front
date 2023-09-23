@@ -4,7 +4,7 @@ import {createAsyncAxiosThunk} from '@api/createAsyncAxiosThunk.ts';
 import {generateInitialState} from '@configredux/generateInitialState.ts';
 import {LoginProps, LoginResponse} from '@configredux/slices/auth/auth.types.ts';
 
-export const login = createAsyncAxiosThunk<LoginResponse, LoginProps>('/auth/login');
+export const login = createAsyncAxiosThunk<LoginResponse, LoginProps>('/auth/login', 'POST');
 
 
 export const initialState = generateInitialState<LoginResponse>(
