@@ -9,12 +9,14 @@ import {yupResolver} from '@hookform/resolvers/yup';
 import {Input} from '@components/ui/Input/Input.tsx';
 import styles from './RegisterForm.module.scss';
 import {Button} from '@components/ui/Button';
+import {useSnackbar} from '@components/ui/Snackbar';
+import {useTSelector} from '@configredux/useTSelector.ts';
 
 const schema = yup.object().shape({
   email: yup.string().email(ErrorMessages.email).required(ErrorMessages.required),
   password: yup
     .string()
-    .min(3, ErrorMessages.password)
+    .min(5, ErrorMessages.password)
     .max(50, ErrorMessages.password)
     .required(ErrorMessages.required),
   firstName: yup
@@ -42,9 +44,15 @@ export const RegisterForm: React.FC = () => {
   });
 
   const dispatch = useAppDispatch();
-
+  const {showSnackbar} = useSnackbar();
+  const {register: registerState} = useTSelector();
   const onSubmit = async (data: IRegisterForm) => {
     const res = await dispatch(register(data));
+    if (res.meta.requestStatus === 'fulfilled') {
+      showSnackbar({text: 'Вы успешно зарегистрировались'});
+    } else {
+      showSnackbar({text: 'Что-то пошло не так. Попробуйте позже'});
+    }
   };
 
   return (
@@ -74,10 +82,15 @@ export const RegisterForm: React.FC = () => {
         control={control}
         name={'password'}
         render={({field, fieldState}) => (
-          <Input {...field} errorText={fieldState.error?.message} labelText={'Пароль'} />
+          <Input
+            {...field}
+            errorText={fieldState.error?.message}
+            labelText={'Пароль'}
+            type="password"
+          />
         )}
       />
-      <Button isLoading={false} type="submit">
+      <Button isLoading={registerState.loading} type="submit">
         Зарегистрироваться
       </Button>
     </form>
