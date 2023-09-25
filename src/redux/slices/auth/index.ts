@@ -1,1 +1,1 @@
-export {login,loginReducer} from './Auth.ts'
+export {login, loginReducer, register, registerReducer} from './Auth.ts';
