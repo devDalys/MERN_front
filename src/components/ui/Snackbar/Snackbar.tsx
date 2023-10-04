@@ -32,7 +32,6 @@ export const Snackbar: React.FC<Props> = ({children}) => {
     }, snackbarVisibleTime);
   };
 
-
   return (
     <SnackbarProvider value={{showSnackbar}}>
       {children}

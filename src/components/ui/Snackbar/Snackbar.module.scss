@@ -1,4 +1,4 @@
-.snackbar{
+.snackbar {
   background-color: var(--color-purple);
   color: white;
   border-radius: 8px;
@@ -15,8 +15,8 @@
   transition: left 0.5s ease-in;
 }
 
-.snackbarVisible{
+.snackbarVisible {
   display: flex;
   left: 20px;
-  transition: left 0.5s ease-in
+  transition: left 0.5s ease-in;
 }

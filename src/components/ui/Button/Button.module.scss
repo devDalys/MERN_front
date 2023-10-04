@@ -1,4 +1,4 @@
-.button{
+.button {
   border-radius: 7px;
   background: var(--color-purple);
   padding: 12px 20px;
@@ -8,8 +8,7 @@
   cursor: pointer;
   transition: all 0.2s;
 }
-.button:disabled{
+.button:disabled {
   filter: grayscale(1);
   transition: all 0.2s;
-
 }

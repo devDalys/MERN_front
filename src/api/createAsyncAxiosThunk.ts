@@ -3,7 +3,16 @@ import axios, {AxiosError, AxiosResponse} from 'axios';
 import {QueryError} from '@type/globaltypes.ts';
 import {api} from '@api/axios.ts';
 
-export type HttpMethod = 'GET' | 'POST' | 'PUT' | 'DELETE' | 'PATCH' | 'HEAD' | 'OPTIONS' | 'CONNECT' | 'TRACE';
+export type HttpMethod =
+  | 'GET'
+  | 'POST'
+  | 'PUT'
+  | 'DELETE'
+  | 'PATCH'
+  | 'HEAD'
+  | 'OPTIONS'
+  | 'CONNECT'
+  | 'TRACE';
 
 export const createAsyncAxiosThunk = <T, D = undefined, QueryErrorResponse = QueryError>(
   path: string,
@@ -17,7 +26,11 @@ export const createAsyncAxiosThunk = <T, D = undefined, QueryErrorResponse = Que
     }
   >('login', async (arg: D | undefined, thunkAPI) => {
     try {
-      if (!['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'HEAD', 'OPTIONS', 'CONNECT', 'TRACE'].includes(method)) {
+      if (
+        !['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'HEAD', 'OPTIONS', 'CONNECT', 'TRACE'].includes(
+          method,
+        )
+      ) {
         throw new Error('Unsupported HTTP method');
       }
 

@@ -1,6 +1,6 @@
 @import './assets/fonts/fonts.css';
 
-*{
+* {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -8,12 +8,10 @@
 }
 
 :root {
-  --bg-grey: #C3BFC6;
-  --color-purple: #985ACE;
+  --bg-grey: #c3bfc6;
+  --color-purple: #985ace;
   --color-white: #fff;
-  --bg-pink: #F8F1FF;
+  --bg-pink: #f8f1ff;
   --white: #fff;
   --black: #000;
-
 }
-

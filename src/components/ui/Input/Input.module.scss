@@ -1,4 +1,4 @@
-.inputWrapper{
+.inputWrapper {
   position: relative;
   width: max-content;
   display: flex;
@@ -6,18 +6,18 @@
   padding-bottom: 12px;
 }
 
-.label{
+.label {
   position: absolute;
   font-size: 14px;
   top: 30%;
   left: 6%;
   transition: all 0.2s;
-  color: #403A4B;
+  color: #403a4b;
   font-weight: 700;
   opacity: 0.6;
 }
 
-.input{
+.input {
   background: var(--bg-pink);
   border-radius: 8px;
   border: none;
@@ -26,7 +26,7 @@
   min-width: 270px;
   min-height: 44px;
 
-  &:focus ~.label{
+  &:focus ~ .label {
     top: 0;
     font-size: 11px;
     transition: all 0.2s;
@@ -47,6 +47,3 @@
   bottom: 0;
   white-space: nowrap;
 }
-
-
-

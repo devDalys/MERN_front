@@ -2,10 +2,18 @@ import {createSlice} from '@reduxjs/toolkit';
 import {setAccessToken} from '@helpers/auth';
 import {createAsyncAxiosThunk} from '@api/createAsyncAxiosThunk.ts';
 import {generateInitialState} from '@configredux/generateInitialState.ts';
-import {LoginProps, LoginResponse, RegisterErrors, RegisterProps} from '@configredux/slices/auth/auth.types.ts';
+import {
+  LoginProps,
+  LoginResponse,
+  RegisterErrors,
+  RegisterProps,
+} from '@configredux/slices/auth/auth.types.ts';
 
 export const login = createAsyncAxiosThunk<LoginResponse, LoginProps>('/auth/login', 'POST');
-export const register = createAsyncAxiosThunk<LoginResponse, RegisterProps, RegisterErrors[]>('/auth/register', 'POST');
+export const register = createAsyncAxiosThunk<LoginResponse, RegisterProps, RegisterErrors[]>(
+  '/auth/register',
+  'POST',
+);
 
 export const initialState = generateInitialState<LoginResponse>({
   token: '',

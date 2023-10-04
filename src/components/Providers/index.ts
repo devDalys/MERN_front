@@ -1,1 +1,1 @@
-export * from './GlobalProviders.tsx'
+export * from './GlobalProviders.tsx';

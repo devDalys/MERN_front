@@ -1,12 +1,11 @@
-
 @font-face {
-    font-weight: 400; /* Соответствует значению normal */
-    font-family: IBMPlexMono;
-    src: url("./IBMPlexMono-Regular.ttf");
+  font-weight: 400; /* Соответствует значению normal */
+  font-family: IBMPlexMono;
+  src: url('./IBMPlexMono-Regular.ttf');
 }
 
 @font-face {
-    font-weight: 700; /* Соответствует значению bold */
-    font-family: IBMPlexMono;
-    src: url("./IBMPlexMono-Bold.ttf");
+  font-weight: 700; /* Соответствует значению bold */
+  font-family: IBMPlexMono;
+  src: url('./IBMPlexMono-Bold.ttf');
 }
